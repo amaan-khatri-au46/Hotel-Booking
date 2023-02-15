@@ -8,11 +8,12 @@ import roomsRoute from "./routes/rooms.js"
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
-
-const app = express();
-const PORT = 8000
 // to use dot env we need to make sone configration 
 dotenv.config()
+
+const app = express();
+
+
 
 // here we will set strict query so it will not throw any error in terminal 
 mongoose.set('strictQuery', true);
@@ -56,7 +57,7 @@ app.use((err, req, res, next) => {
     });
   });
 
-
+const PORT = process.env.PORT || 8000
 app.listen(PORT , () => {
     connect()
     console.log("Server Started At Port " + PORT);
